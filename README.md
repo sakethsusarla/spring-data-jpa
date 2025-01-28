@@ -1,89 +1,87 @@
-# spring-data-jpa
+# Spring Data JPA
 
-# Core Concepts and Advanced Configurations
+# Core Entity Concepts
+## Popular
+- Defining JPA Entities
+- Hibernate Entity Lifecycle
+- JPA Entity Lifecycle Events
+- Default Column Values in JPA
+- JPA Entity Equality
+- JPA Entities and the Serializable Interface
 
-1. JPA Fundamentals and Spring Data JPA Architecture
-   - JPA vs Hibernate vs Spring Data JPA - architectural differences and benefits
-   - Entity lifecycle (Transient, Managed, Detached, Removed)
-   - EntityManager and PersistenceContext
-   - Transaction management (@Transactional, propagation levels, isolation levels)
+## Standard
+- JPA @Basic Annotation
+- Mapping Entity Class Names to SQL Table Names with JPA
 
-2. Entity Mappings and Relationships
-   - Entity design best practices
-   - Inheritance strategies (@MappedSuperclass, @Inheritance)
-   - Complex relationships (@OneToMany, @ManyToMany, @ElementCollection)
-   - Lazy vs Eager loading - performance implications
-   - Bidirectional relationships and handling circular references
+# Entity Attributes and Validation
+## Popular
+- Difference Between @Size, @Length, and @Column(length=value)
+- Jpa @Embedded and @Embeddable
+- JPA Attribute Converters
+- Hibernate @NotNull vs @Column(nullable = false)
+- Defining Unique Constraints in JPA
 
-3. Repository Layer Implementation
-   - CrudRepository vs JpaRepository vs PagingAndSortingRepository
-   - Query methods (derived queries, JPQL, native queries)
-   - @Query annotation with named and indexed parameters
-   - Projections (interface-based, class-based, dynamic)
-   - Specifications and criteria API for dynamic queries
+# Data Types and Mappings
+## Popular
+- Hibernate - Mapping Date and Time
+- Using Java Records with JPA
+- Persisting Enums in JPA
 
-4. Performance Optimization
-   - First and second-level caching strategies
-   - N+1 problem and solutions
-   - Batch processing (@BatchSize, bulk operations)
-   - Query optimization and execution plan analysis
-   - Connection pooling configuration (HikariCP)
+# Entity Relationships
+## Popular
+- One-to-One Relationship in JPA
+- Many-To-Many Relationship in JPA
+- @JoinColumn Annotation Explained
+- Difference Between @JoinColumn and mappedBy
+- Mapping a Single Entity to Multiple Tables in JPA
+- Overview of JPA/Hibernate Cascade Types
+- Hibernate Inheritance Mapping
+- Hibernate One to Many Annotation Tutorial
+- Understanding JPA/Hibernate Associations
 
-# Advanced Features and Real-world Scenarios
+## Standard
+- Hibernate @WhereJoinTable Annotation
 
-1. Advanced JPA Features
-   - Auditing (@EntityListeners, @CreatedBy, @LastModifiedBy)
-   - Versioning and optimistic locking
-   - Soft deletes implementation
-   - Custom ID generators
-   - Event listeners and callbacks
+# Identity Management
+## Popular
+- An Overview of Identifiers in Hibernate/JPA
+- Composite Primary Keys in JPA
+- Generate UUIDs as Primary Keys With Hibernate
+- Returning an Auto-Generated Id with JPA
+- When Does JPA Set the Primary Key
 
-2. Testing and Best Practices
-   - Unit testing repositories
-   - Integration testing with @DataJpaTest
-   - Test data management (TestEntityManager)
-   - Database migration strategies (Flyway/Liquibase)
-   - Transaction boundaries and service layer design
+# Querying
+## Popular
+- JPA Query Parameters Usage
+- JPA Join Types
+- Optimistic Locking in JPA
+- Pessimistic Locking in JPA
+- JPA Criteria Queries
+- Combining JPA And/Or Criteria Predicates
+- Customizing the Result of JPA Queries with Aggregation Functions
 
-3. Real-world Implementation Patterns
-   - Repository patterns for microservices
-   - Multi-tenancy implementation
-   - Handling large datasets (pagination, streaming results)
-   - Caching strategies in distributed systems
-   - Event sourcing and CQRS with Spring Data JPA
+## Standard
+- Types of JPA Queries
+- Constructing a JPA Query Between Unrelated Entities
+- Working with Lazy Element Collections in JPA
+- FetchMode in Hibernate
+- Hibernate Named Query
+- Criteria API - An Example of IN Expressions
+- A Guide to SqlResultSetMapping
 
-4. Common Interview Topics and Code Reviews
-   - Performance tuning case studies
-   - Debugging common JPA issues
-   - Migration strategies (legacy to Spring Data JPA)
-   - Best practices for schema evolution
-   - Code review checklist for JPA implementations
+# Pagination and Sorting
+## Popular
+- Sorting with JPA
+- JPA Pagination
 
-## Practice Areas to Focus On
+## Standard
+- Hibernate Pagination
 
-1. Complex Queries
-   - Write and optimize complex JPQL queries
-   - Implement dynamic queries using Specifications
-   - Handle complex joins and aggregations
+# Data Operations
+## Popular
+- Batch Insert/Update with Hibernate/JPA
+- Hibernate: save, persist, update, merge, saveOrUpdate
 
-2. Performance Scenarios
-   - Identify and fix N+1 queries
-   - Implement caching strategies
-   - Optimize batch operations
-
-3. Design Patterns
-   - Repository pattern implementation
-   - Service layer transaction management
-   - Event-driven architectures with JPA
-
-4. Integration Scenarios
-   - Multiple database configuration
-   - Integration with other Spring modules
-   - Error handling and recovery patterns
-
-Note:
-- Focus on real-world scenarios you've encountered in your 9 years of experience
-- Prepare examples of performance optimization challenges you've solved
-- Review recent Spring Data JPA updates and best practices
-- Practice explaining complex concepts in a clear, concise manner
-- Keep architectural trade-offs in mind when discussing different approaches
+## Standard
+- INSERT Statement in JPA
+- Deleting Objects with Hibernate
