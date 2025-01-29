@@ -10,3 +10,5 @@ build
 
 #IntelliJ
 /.idea/
+.idea
+*.gitattributes
