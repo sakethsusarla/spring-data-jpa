@@ -2,9 +2,9 @@ package com.practice.jpaentitylifecycle.service;
 
 import com.practice.jpaentitylifecycle.model.User;
 import com.practice.jpaentitylifecycle.repository.UserCrudRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
