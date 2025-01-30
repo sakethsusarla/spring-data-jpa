@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "students", schema = "university")
+// WARNING: if you try running the application without creating this schema in the db, you will encounter ERROR: schema "university" does not exist
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
