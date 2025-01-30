@@ -1,6 +1,6 @@
 spring:
   application:
-    name: hibernate-entity-lifecycle
+    name: jpa-entity-lifecycle
   jpa:
     hibernate:
       ddl-auto: update

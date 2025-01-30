@@ -1,4 +1,4 @@
-package com.practice.hibernateentitylifecycle;
+package com.practice.jpaentitylifecycle;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

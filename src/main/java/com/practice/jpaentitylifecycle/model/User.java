@@ -1,4 +1,4 @@
-package com.practice.hibernateentitylifecycle.model;
+package com.practice.jpaentitylifecycle.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

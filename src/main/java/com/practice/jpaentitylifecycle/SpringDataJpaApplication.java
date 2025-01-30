@@ -1,4 +1,4 @@
-package com.practice.hibernateentitylifecycle;
+package com.practice.jpaentitylifecycle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
