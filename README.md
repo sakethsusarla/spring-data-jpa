@@ -11,3 +11,6 @@
 5. Entities can become `detached` from the persistence context meaning they're no longer monitored for changes by the entity manager (interface to the persistence context; analogy: persistence context is the shopping cart, entity manager is the shopping interface - lets you add, remove or check what's in the cart). Changes made to a detached entity won't be automatically synchronized with the database. The entity must be merged back into the persistence context. Entities can become detached in several ways:
    1. When a transaction completes, all managed entities associated with the EntityManager become `detached`
    2. When an entity manager is closed (In Spring applications, the EntityManager closing is typically managed by the Spring IoC container)
+   3. When the detach method is explicitly called on an EntityManager.
+   4. When entities are serialized
+6. An entity can be marked as `removed` signalling it will be deleted from the database once the transaction completes. This is the final state of an entity before it gets garbage collected (See `UserService#delete`)

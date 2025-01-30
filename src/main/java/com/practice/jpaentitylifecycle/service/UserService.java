@@ -23,10 +23,19 @@ public class UserService {
     }
 
     @Transactional
-    public Optional<User> update(String name) {
+    public Optional<User> update(String name, String preferredName) {
         final Optional<User> userByName = this.userCrudRepository.findUserByName(name);
 
-        userByName.ifPresent(user -> user.setName(name));
+        userByName.ifPresent(user -> user.setPreferredName(preferredName));
+
+        return userByName;
+    }
+
+    @Transactional
+    public Optional<User> delete(String name) {
+        final Optional<User> userByName = this.userCrudRepository.findUserByName(name);
+
+        userByName.ifPresent(userCrudRepository::delete);
 
         return userByName;
     }

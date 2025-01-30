@@ -13,19 +13,33 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false, name = "name", length = 50, updatable = true)
+    @Column(nullable = false, name = "name", length = 50, updatable = false, unique = true)
     @NotBlank
     private String name;
+
+    @Column(nullable = false, name = "preferred_name", length = 50, updatable = true, unique = false)
+    @NotBlank
+    private String preferredName;
 
     public User() {
     }
 
     public User(String name) {
-        this.name = name;
+        final String trimmedName = name.trim();
+        this.name = trimmedName;
+        this.preferredName = trimmedName;
     }
 
     public UUID getId() {
         return id;
+    }
+
+    public String getPreferredName() {
+        return preferredName;
+    }
+
+    public void setPreferredName(String preferredName) {
+        this.preferredName = preferredName;
     }
 
     public void setId(UUID id) {

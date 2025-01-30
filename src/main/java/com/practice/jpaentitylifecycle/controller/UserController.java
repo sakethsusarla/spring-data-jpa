@@ -5,10 +5,7 @@ import com.practice.jpaentitylifecycle.service.UserService;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -33,10 +30,20 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    ResponseEntity<User> update(@RequestParam @NotBlank String name) {
+    ResponseEntity<User> update(@RequestParam @NotBlank String name, @RequestParam @NotBlank String preferredName) {
         try {
-            final Optional<User> updated = this.userService.update(name);
+            final Optional<User> updated = this.userService.update(name, preferredName);
             return updated.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/delete")
+    ResponseEntity<User> delete(@RequestParam @NotBlank String name) {
+        try {
+            final Optional<User> deleted = this.userService.delete(name);
+            return deleted.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
