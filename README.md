@@ -2,8 +2,8 @@
 
 # Core Entity Concepts
 ## Popular
-- Defining JPA Entities
-- Hibernate Entity Lifecycle
+- [Defining JPA Entities](https://github.com/sakethsusarla/spring-data-jpa/tree/defining-jpa-entities)
+- [JPA Entity Lifecycle](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle)
 - JPA Entity Lifecycle Events
 - Default Column Values in JPA
 - JPA Entity Equality
