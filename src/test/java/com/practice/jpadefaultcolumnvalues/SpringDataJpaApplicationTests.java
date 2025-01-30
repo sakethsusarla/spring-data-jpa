@@ -1,4 +1,4 @@
-package com.practice.springdatajpa;
+package com.practice.jpadefaultcolumnvalues;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
