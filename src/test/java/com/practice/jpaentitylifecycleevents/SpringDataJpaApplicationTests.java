@@ -1,4 +1,4 @@
-package com.practice.springdatajpa;
+package com.practice.jpaentitylifecycleevents;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
