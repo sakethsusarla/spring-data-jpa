@@ -10,4 +10,4 @@
 4. A `managed/ persistent` entity is associated with a persistence context and any changes made to it will be automatically synchronized in the database once the transaction completes. An explicit call to save or update isn't necessary (See `UserService#update`)
 5. Entities can become `detached` from the persistence context meaning they're no longer monitored for changes by the entity manager (interface to the persistence context; analogy: persistence context is the shopping cart, entity manager is the shopping interface - lets you add, remove or check what's in the cart). Changes made to a detached entity won't be automatically synchronized with the database. The entity must be merged back into the persistence context. Entities can become detached in several ways:
    1. When a transaction completes, all managed entities associated with the EntityManager become `detached`
-   2. When an entity manager is closed (In Spring applications, the EntityManager closing is typically managed by the container)
+   2. When an entity manager is closed (In Spring applications, the EntityManager closing is typically managed by the Spring IoC container)
