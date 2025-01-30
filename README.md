@@ -16,4 +16,20 @@
 5. `@PreUpdate`, `@PreRemove` and `@PrePersist` can happen right after the operation occurs, after a flush or at the end of a transaction
 6. `@PreUpdate` is called if the data has actually changed and `@PostUpdate` is called regardless of whether anything actually changed
 7. If any of the callbacks for persisting or removing an entity throw an exception, the transaction will be rolled back
-8. 
+8. Here's how the output would look like after a series of delete, create, update and get requests (use [bruno](https://github.com/usebruno/bruno/releases))
+
+```json lines
+// delete
+EmployeeEntityListener.postLoad Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:07:38.314394Z, updatedAt=2025-01-30T16:08:24.354892Z}
+EmployeeEntityListener.preRemove Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:07:38.314394Z, updatedAt=2025-01-30T16:08:24.354892Z}
+EmployeeEntityListener.postRemove Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:07:38.314394Z, updatedAt=2025-01-30T16:08:24.354892Z}
+// create
+EmployeeEntityListener.prePersist Employee{name='raj', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:28.798088Z}
+EmployeeEntityListener.postPersist Employee{name='raj', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:28.798088Z}
+// update
+EmployeeEntityListener.postLoad Employee{name='raj', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:28.798088Z}
+EmployeeEntityListener.preUpdate Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:47.079153Z}
+EmployeeEntityListener.postUpdate Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:47.079153Z}
+// get
+EmployeeEntityListener.postLoad Employee{name='brown-dynamite', email='raj@browndynamite.com', createdAt=2025-01-30T16:15:28.798088Z, updatedAt=2025-01-30T16:15:47.079153Z}
+```
