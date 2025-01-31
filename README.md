@@ -1,4 +1,4 @@
-# Spring Data JPA
+# Spring Data JPA Practice (Source: [Baeldung](https://www.baeldung.com/learn-jpa-hibernate))
 
 # Core Entity Concepts
 ## Popular
