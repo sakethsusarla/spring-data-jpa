@@ -1,4 +1,4 @@
-package com.practice.springdatajpa;
+package com.practice.jpaentitiesserializable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
