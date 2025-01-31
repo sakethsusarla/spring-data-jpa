@@ -1,1 +1,9 @@
 # Notes
+
+1. In Java, by default, two objects are considered to be equal if they are the same instances (and not two separate instances) representing the same object
+2. However, Java lets you change the definition of equality by overriding `Object.equals()` and `Object.hashCode()` methods
+3. Following are some points to keep in mind:
+   1. **Collections**: Java collections group objects together. The grouping logic uses a special value known as hash code to determine the group for an object. If the value returned by the `hashCode()` method is the same for all the entities, this could result in undesired behavior. Collections will not be able to distinguish between different objects when comparing them because they will all share the same hash code. So, it's important to use some unique identifiers to compute the hash code
+   2. **Transient Entities**: Newly create JPA entity instances have no association with the persistence context. They're considered to be in a `new/ transient` state. These objects do not have their `@Id` members populated. This means that if the equals and hash code solely rely on the id attribute, then all these newly created objects would essentially have the same hash code because their ids will all be null.
+   3. **Subclasses**: Subclasses are also a concern when defining equality. Therefore, it is important to use the `getClass()` method in the `Object.equals()` method. Two objects can be equal if the objects are of the same class
+4. Unique attributes can be used in the `Object.equals()` and `Object.hashCode()` methods to generate distinct hash codes. For example, an email is unique to a user.
