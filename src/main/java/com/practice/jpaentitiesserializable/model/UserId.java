@@ -2,8 +2,6 @@ package com.practice.jpaentitiesserializable.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,7 +11,6 @@ import java.util.UUID;
 
 @Embeddable
 public class UserId implements Serializable {
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(nullable = false, name = "group_id", updatable = false)
     @NotNull
     private UUID groupId;
@@ -26,6 +23,7 @@ public class UserId implements Serializable {
     }
 
     public UserId(String email) {
+        this.groupId = UUID.randomUUID();
         this.email = email;
     }
 
