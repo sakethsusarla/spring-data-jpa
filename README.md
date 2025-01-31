@@ -5,7 +5,7 @@
 - [Defining JPA Entities](https://github.com/sakethsusarla/spring-data-jpa/tree/defining-jpa-entities)
 - [JPA Entity Lifecycle](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle)
 - [JPA Entity Lifecycle Events](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle-events)
-- Default Column Values in JPA
+- [Default Column Values in JPA](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-default-column-values)
 - JPA Entity Equality
 - JPA Entities and the Serializable Interface
 
