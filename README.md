@@ -1,87 +1,44 @@
-# Spring Data JPA
+# Notes
 
-# Core Entity Concepts
-## Popular
-- [Defining JPA Entities](https://github.com/sakethsusarla/spring-data-jpa/tree/defining-jpa-entities)
-- [JPA Entity Lifecycle](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle)
-- [JPA Entity Lifecycle Events](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle-events)
-- Default Column Values in JPA
-- JPA Entity Equality
-- JPA Entities and the Serializable Interface
-
-## Standard
-- JPA @Basic Annotation
-- Mapping Entity Class Names to SQL Table Names with JPA
-
-# Entity Attributes and Validation
-## Popular
-- Difference Between @Size, @Length, and @Column(length=value)
-- Jpa @Embedded and @Embeddable
-- JPA Attribute Converters
-- Hibernate @NotNull vs @Column(nullable = false)
-- Defining Unique Constraints in JPA
-
-# Data Types and Mappings
-## Popular
-- Hibernate - Mapping Date and Time
-- Using Java Records with JPA
-- Persisting Enums in JPA
-
-# Entity Relationships
-## Popular
-- One-to-One Relationship in JPA
-- Many-To-Many Relationship in JPA
-- @JoinColumn Annotation Explained
-- Difference Between @JoinColumn and mappedBy
-- Mapping a Single Entity to Multiple Tables in JPA
-- Overview of JPA/Hibernate Cascade Types
-- Hibernate Inheritance Mapping
-- Hibernate One to Many Annotation Tutorial
-- Understanding JPA/Hibernate Associations
-
-## Standard
-- Hibernate @WhereJoinTable Annotation
-
-# Identity Management
-## Popular
-- An Overview of Identifiers in Hibernate/JPA
-- Composite Primary Keys in JPA
-- Generate UUIDs as Primary Keys With Hibernate
-- Returning an Auto-Generated Id with JPA
-- When Does JPA Set the Primary Key
-
-# Querying
-## Popular
-- JPA Query Parameters Usage
-- JPA Join Types
-- Optimistic Locking in JPA
-- Pessimistic Locking in JPA
-- JPA Criteria Queries
-- Combining JPA And/Or Criteria Predicates
-- Customizing the Result of JPA Queries with Aggregation Functions
-
-## Standard
-- Types of JPA Queries
-- Constructing a JPA Query Between Unrelated Entities
-- Working with Lazy Element Collections in JPA
-- FetchMode in Hibernate
-- Hibernate Named Query
-- Criteria API - An Example of IN Expressions
-- A Guide to SqlResultSetMapping
-
-# Pagination and Sorting
-## Popular
-- Sorting with JPA
-- JPA Pagination
-
-## Standard
-- Hibernate Pagination
-
-# Data Operations
-## Popular
-- Batch Insert/Update with Hibernate/JPA
-- Hibernate: save, persist, update, merge, saveOrUpdate
-
-## Standard
-- INSERT Statement in JPA
-- Deleting Objects with Hibernate
+1. The first (and the most obvious) way to set a default column value is to set it directly as an entity property value.
+   For example, `preferredName = "Brown Dynamite"`
+2. The drawback to this approach is that this has no effect over the SQL table definition. There won't be any default
+   value in it.
+    ```postgresql
+    create table public.users
+    (
+        uuid           uuid        not null primary key,
+        name           varchar(50) not null constraint uk3g1j96g94xpk3lpxl2qbl985x unique,
+        preferred_name varchar(50) not null
+    );
+    ```
+3. If you look at the above table definition, it doesn't reflect our default `preferredName` as "Brown Dynamite"
+4. To create a default value directly in the SQL table definition, we can use the `@Column` annotation and set its
+   `columnDefinition` parameter. Let's look at the update table definition
+   ```postgresql
+   create table public.users
+   (
+       uuid           uuid                                                     not null primary key,
+       name           varchar(50)                                              not null constraint uk3g1j96g94xpk3lpxl2qbl985x unique,
+       preferred_name varchar(50) default 'Brown Dynamite'::character varying  not null
+   );
+   ```
+5. It is worth noting that we won't be able to set a given column to null when saving the entity for the first time. The
+   default one will be set automatically if we don't provide any value.
+6. Another approach to specify default values for columns is to use the `@ColumnDefault` annotation. This sets the
+   default at the JPA level and the same is reflected in the SQL schema. _**Warning:** The catch here is that this comes from
+   Hibernate and not Jakarta Persistence, so now the code is tightly coupled to Hibernate_. Here are some gotchas for
+   `@ColumnDefault`,
+    1. Default values will be applied automatically only if we omit them in the `INSERT` statement
+    2. If we include columns in our `INSERT` statement, fields that aren't set will be left as `null` and the database
+       won't apply the default values
+   ```postgresql
+      create table public.users
+      (
+         uuid           uuid                                                    not null primary key,
+         name           varchar(50)                                             not null constraint uk3g1j96g94xpk3lpxl2qbl985x unique,
+         preferred_name varchar(50) default 'Brown Dynamite'::character varying not null
+      );
+      ```
+7. One other way to set default values is by leveraging the JPA entity lifecycle callbacks. [Using the @PrePersist
+   annotation](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entity-lifecycle-events), we could set the values programmatically before the entity is persisted. 
