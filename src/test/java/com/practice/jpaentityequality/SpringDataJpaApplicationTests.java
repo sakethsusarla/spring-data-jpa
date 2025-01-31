@@ -1,4 +1,4 @@
-package com.practice.springdatajpa;
+package com.practice.jpaentityequality;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

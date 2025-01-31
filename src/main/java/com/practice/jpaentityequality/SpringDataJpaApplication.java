@@ -1,4 +1,4 @@
-package com.practice.springdatajpa;
+package com.practice.jpaentityequality;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
