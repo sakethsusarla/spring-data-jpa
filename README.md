@@ -28,7 +28,7 @@
 
 # Additional Notes
 
-1. **@NotNull (Bean Validation)**
+1. `@NotNull` (Bean Validation)
 
    - Part of Jakarta Bean Validation framework
    - Application-level validation
@@ -37,7 +37,7 @@
    - Most flexible - can be used with `@Valid` anywhere in application
    - Example: Service layer validation before saving
 
-2. **@Basic(optional = false) (JPA Level)**
+2. `@Basic(optional = false)` (JPA Level)
 
    - JPA/Persistence layer validation
    - Validates during persistence operations
@@ -45,7 +45,7 @@
    - Least commonly used among the three
    - Redundant when using `@NotNull` and `@Column(nullable = false)`
 
-3. **@Column(nullable = false) (Database Level)**
+3. `@Column(nullable = false)` (Database Level)
 
    - Database schema constraint (NOT NULL)
    - Final validation during database operations
