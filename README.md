@@ -11,7 +11,7 @@
 
 ## Standard
 - [JPA @Basic Annotation](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-basic-annotation)
-- Mapping Entity Class Names to SQL Table Names with JPA
+- [Mapping Entity Class Names to SQL Table Names with JPA](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-basic-annotation)
 
 # Entity Attributes and Validation
 ## Popular
