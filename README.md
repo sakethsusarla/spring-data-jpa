@@ -10,7 +10,7 @@
 - [JPA Entities and the Serializable Interface](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-entities-serializable)
 
 ## Standard
-- JPA @Basic Annotation
+- [JPA @Basic Annotation](https://github.com/sakethsusarla/spring-data-jpa/tree/jpa-basic-annotation)
 - Mapping Entity Class Names to SQL Table Names with JPA
 
 # Entity Attributes and Validation
