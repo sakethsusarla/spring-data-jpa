@@ -1,7 +1,5 @@
 # Notes
 
-## Basic Java Serialization Concepts
-
 1. `Serializable` is one of the few marker interfaces (no methods or constants) found in core Java
 2. Serialization: converting POJOs into byte streams
 3. Deserialization: converting byte streams into POJOs
