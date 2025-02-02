@@ -15,3 +15,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: true
+        # following properties are specific to batching
+        jdbc:
+          batch_size: 5
+        batch_versioned_data: true
+        order_inserts: true
+        order_updates: true

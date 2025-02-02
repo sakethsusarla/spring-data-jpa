@@ -9,7 +9,7 @@ import java.util.Objects;
 @Table(name = "containers")
 public class Container {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, length = 20, updatable = false, unique = false)
@@ -54,6 +54,14 @@ public class Container {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Pod getPod() {
+        return pod;
+    }
+
+    public void setPod(Pod pod) {
+        this.pod = pod;
     }
 
     @Override

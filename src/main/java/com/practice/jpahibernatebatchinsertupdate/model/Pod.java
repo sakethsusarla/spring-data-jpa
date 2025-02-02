@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public class Pod {
     static final String TABLE_NAME = "pods";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, length = 20, unique = true, updatable = false)
@@ -25,6 +26,11 @@ public class Pod {
     private List<Container> containers;
 
     public Pod() {
+    }
+
+    public Pod(String name) {
+        this.name = name;
+        this.containers = new ArrayList<>();
     }
 
     public Long getId() {
